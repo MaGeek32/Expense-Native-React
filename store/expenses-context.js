@@ -101,7 +101,6 @@ function ExpensesContextProvider ({ children }) {
   const [expensesState, dispatch] = useReducer(expensesReducer, DUMMY_EXPNESES)
 
   function addExpense (expenseData) {
-    console.log(expenseData)
     dispatch({ type: 'ADD', payload: expenseData })
   }
 
