@@ -7,18 +7,22 @@ import { getFormattedDate } from "../../util/date"
 
 function ExpenseForm ({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
   const [inputs, setInputs] = useState({
-    amount: {
-      value: defaultValues ? defaultValues.amount.toString() : '',
+    meeting_name: {
+      value: defaultValues ? defaultValues.meeting_name.toString() : '',
       isValid: true,
     },
-    date: {
-      value: defaultValues ? getFormattedDate(defaultValues.date) : '',
+    race_number: {
+      value: defaultValues ? defaultValues.race_number.toString() : '',
       isValid: true,
     },
-    description: {
-      value: defaultValues ? defaultValues.description : '',
-      isValid: true,
-    }
+    // date: {
+    //   value: defaultValues ? getFormattedDate(defaultValues.date) : '',
+    //   isValid: true,
+    // },
+    // description: {
+    //   value: defaultValues ? defaultValues.description : '',
+    //   isValid: true,
+    // }
   })
   function inputChangeHandler (inputIdentifier, enteredValue) {
     setInputs((curInputs) => {
@@ -73,7 +77,7 @@ function ExpenseForm ({ submitButtonLabel, onCancel, onSubmit, defaultValues }) 
           onChangeText: inputChangeHandler.bind(this, 'amount'),
           value: inputs.amount.value,
         }} />
-      <Input
+      {/* <Input
         style={styles.rowInput}
         label="Date"
         invalid={!inputs.date.isValid}
@@ -82,17 +86,17 @@ function ExpenseForm ({ submitButtonLabel, onCancel, onSubmit, defaultValues }) 
           maxLength: 10,
           onChangeText: inputChangeHandler.bind(this, 'date'),
           value: inputs.date.value,
-        }} />
+        }} /> */}
     </View>
 
-    <Input label="Description"
-      invalid={!inputs.description.isValid}
+    <Input label="meetingName"
+      invalid={!inputs.meetingName.isValid}
       textInputConfig={{
         multiline: true,
         // autocorrect: false,
         // autoCapitalize: 'none'
-        onChangeText: inputChangeHandler.bind(this, 'description'),
-        value: inputs.description.value,
+        onChangeText: inputChangeHandler.bind(this, 'meetingName'),
+        value: inputs.meetingName.value,
       }} />
     {formIsInvalid && <Text style={styles.errorText}>Invalid input values - please check your entered data!</Text>}
     <View style={styles.buttons}>
